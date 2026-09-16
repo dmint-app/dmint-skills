@@ -4,12 +4,19 @@ from __future__ import annotations
 
 import importlib.resources
 from pathlib import Path
+import re
 
 POLICY_MANAGER_SKILL_NAME = "dmint-policy-manager"
+SKILL_NAME_PATTERN = re.compile(r"^[a-zA-Z0-9_-]+$")
 
 
 def get_skill_path(skill_name: str = POLICY_MANAGER_SKILL_NAME) -> Path:
     """Return the filesystem Path to a skill's SKILL.md (defaults to dmint-policy-manager)."""
+    if not skill_name or not SKILL_NAME_PATTERN.match(skill_name):
+        raise ValueError(
+            f"Invalid skill name '{skill_name}'. Must contain only alphanumeric characters, dashes, or underscores."
+        )
+
     # First attempt: package data inside src/dmint_skills/skills/<skill_name>/SKILL.md
     pkg_skill = Path(__file__).resolve().parent / "skills" / skill_name / "SKILL.md"
     if pkg_skill.exists():

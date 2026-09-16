@@ -114,7 +114,7 @@ Before running any policy command, verify that `dmint-cli` is available:
 dmint --version
 ```
 
-- If `dmint` is found (reporting `dmint 0.3.0` or higher), proceed immediately.
+- If `dmint` is found (reporting `dmint 1.0.0` or higher), proceed immediately.
 - If `dmint` is missing, install it automatically:
   ```bash
   pip install dmint-cli

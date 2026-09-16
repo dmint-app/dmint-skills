@@ -205,15 +205,15 @@ class TestPolicyManagerSkill(unittest.TestCase):
         self.assertIn("DO Say (Non-Technical Language)", self.skill_text)
 
     def test_version_matches_cli(self) -> None:
-        """dmint-skills version must be 0.3.0 to match dmint-cli."""
+        """dmint-skills version must be 1.0.0 to match dmint-cli."""
         import dmint_skills
         import re
 
-        self.assertEqual(dmint_skills.__version__, "0.3.0")
+        self.assertEqual(dmint_skills.__version__, "1.0.0")
         pyproject_text = (Path(__file__).resolve().parent.parent / "pyproject.toml").read_text(encoding="utf-8")
         match = re.search(r'version\s*=\s*"([^"]+)"', pyproject_text)
         self.assertIsNotNone(match)
-        self.assertEqual(match.group(1), "0.3.0")
+        self.assertEqual(match.group(1), "1.0.0")
 
 
 if __name__ == "__main__":

@@ -1,3 +1,3 @@
-"""Version metadata for dmint-skills."""
+"""Version definition for dmint-skills."""
 
-__version__ = "0.3.0"
+__version__ = "1.0.0"
