@@ -11,5 +11,13 @@ requires-python = ">=3.10"
 readme = "README.md"
 dependencies = []
 
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0.0",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+dmint_skills = ["skills/**/*.md", "skills/*.md"]
